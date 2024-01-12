@@ -1,2 +1,6 @@
-./server/node_modules/
-./client/node_modules/
+server/node_modules/*
+client/node_modules/*
+server/*-lock.json
+server/*.env
+client/*-lock.json
+client/*.env

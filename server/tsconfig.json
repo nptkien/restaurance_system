@@ -68,7 +68,7 @@
     "include": [
         "./**/*.ts",
         "./built/**/*"
-, "../server.ts", "index.ts"    ],
+, "server.ts", "index.ts"    ],
     "exclude": [
         "src/node_modules",
         "dist",
