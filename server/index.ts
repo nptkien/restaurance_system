@@ -4,7 +4,10 @@ import dotenv from "./src/ultis/dotenv";
 import logger from "./src/ultis/logger";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import mongoose from 'mongoose';
+import { appRouters } from "./src/routes";
 dotenv.config();
+const PREFIX_API = "/api";
 
 class App {
     public app: express.Application;
@@ -37,10 +40,15 @@ class App {
                 logger.info(`Server is running on port ${this.port}`);
             });
             // if (!JSON.parse(process.env.SOCKET_DISABLE || 'false')) initSocket(this.server);
+            mongoose.connection.on("error", (err) => {
+                logger.error("MongoDB error: ", err);
+            });
         });
     }
 
-    private useAPI() { }
+    private useAPI() {
+        this.app.use(PREFIX_API, appRouters);
+    }
 
 }
 export { App }
@@ -50,8 +58,20 @@ export { App }
 
 
 
-function connectDatabase(callback: () => void) {
-    callback();
+const connectDatabase = (callback: () => void) => {
+    const uri = "mongodb+srv://kiennpt:Kien%406789@ksteam.h5mewxf.mongodb.net/?retryWrites=true&w=majority";
+
+    mongoose.connect(uri, {
+        dbName: "ktteam"
+    }).then(() => {
+        logger.info(" connect mongo done");
+        callback();
+
+    }).catch((err) => {
+        logger.error(" connect mongo err ", err);
+        callback();
+    })
+
 }
 
 

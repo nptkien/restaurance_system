@@ -1,7 +1,6 @@
-class Product {
-    constructor() {
 
-    }
+class Product {
+  name: string
 }
 
 export { Product };
