@@ -7,7 +7,7 @@ class RoleAccessConfig {
     public static not_access = -1;
 }
 class RoleFeature {
-    id: string;
-    name: string; // chức năng tên gì ?? ( )
-    accessRole: number;
+    // id: string;
+    // name: string; // chức năng tên gì ?? ( )
+    // accessRole: number;
 }

@@ -1,4 +1,4 @@
 class Order {
-    id: string;
+    // id: string;
 
 }

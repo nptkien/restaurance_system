@@ -1,3 +1,5 @@
 export * from './user';
 export * from './product';
-export * from './restaurance';
+export * from './restaurant';
+export * from './product_category';
+export * from './provider';
