@@ -16,7 +16,7 @@
         // "sourceMap": true,                     /* Generates corresponding '.map' file. */
         // "outFile": "./compile",                       /* Concatenate and emit output to single file. */
         "outDir": "./public/" /* Redirect output structure to the directory. */,
-        "rootDir": "." /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
+        "rootDir": "../" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
         // "composite": true,                     /* Enable project compilation */
         // "tsBuildInfoFile": "./",               /* Specify file to store incremental compilation information */
         // "removeComments": true,                /* Do not emit comments to output. */
@@ -67,8 +67,10 @@
     },
     "include": [
         "./**/*.ts",
-        "./built/**/*"
-, "server.ts", "index.ts"    ],
+        "./built/**/*",
+        "server.ts",
+        "index.ts"
+    ],
     "exclude": [
         "src/node_modules",
         "dist",

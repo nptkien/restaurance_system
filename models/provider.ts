@@ -7,7 +7,7 @@ class Brand {
     tag: string[];
     logo: string;
     constructor({
-        _id = "",
+        _id,
         status = 0,
         type = 0,
         name = "",
@@ -37,18 +37,7 @@ class Brand {
         return `Brand { _id: ${this._id}, status: ${this.status}, type: ${this.type}, name: ${this.name}, code: ${this.code}, tag: [${this.tag.join(', ')}], logo: ${this.logo} }`;
     }
 
-    // Hàm chuyển đối thành đối tượng JSON
-    toJSON(): object {
-        return {
-            _id: this._id,
-            status: this.status,
-            type: this.type,
-            name: this.name,
-            code: this.code,
-            tag: this.tag,
-            logo: this.logo,
-        };
-    }
+
 
 
     static fakeData(): Brand[] {
@@ -123,6 +112,7 @@ class Brand {
 
         return [...fakeTechBrands, ...fakeFoodBrands];
     }
+
 }
 
 export { Brand }

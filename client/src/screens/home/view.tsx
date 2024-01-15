@@ -1,12 +1,12 @@
 import { Text, View, StyleSheet, StyleProp, TextStyle, ScrollView } from "react-native"
 import { Badge, ButtonPrimary, Category, PrimaryTextField, SwitchPrimary, Tag } from "../../components";
 import { COLORS } from "../../theme/color";
-import { useForm } from 'react-hook-form';
+import { Control, FieldValues, FieldError, Controller, useForm, Form } from 'react-hook-form';
 
 
 
 
-function HomeScreen() {
+function HomeView() {
     const { control, register, handleSubmit, formState: { errors } } = useForm({ mode: "onSubmit" });
     //test
     const onSubmit = (data: any) => {
@@ -25,8 +25,7 @@ function HomeScreen() {
         <Badge title={"Label"} backgroundColor={COLORS.Primary} />
         <View style={styles.space}></View>
         <PrimaryTextField
-            title="Username"
-            width={"80%"}
+            title="Username" width={"80%"}
             control={control}
             name="username"
             placeholder="Enter your username"
@@ -78,4 +77,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeScreen;
+export default HomeView;
