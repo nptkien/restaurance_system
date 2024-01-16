@@ -6,9 +6,11 @@ interface BorderRadius {
     radius_15: number;
     radius_20: number;
     radius_25: number;
+    radius_40: number;
+
 }
 
-export const BORDERRADIUS: BorderRadius = {
+export const BORDERRADIUS: BorderRadius={
     radius_4: 4,
     radius_8: 8,
     radius_10: 10,
@@ -16,4 +18,5 @@ export const BORDERRADIUS: BorderRadius = {
     radius_15: 15,
     radius_20: 20,
     radius_25: 25,
+    radius_40: 40,
 };

@@ -18,6 +18,7 @@ interface PrimaryTextFieldProps {
     placeholder: string,
     secureTextEntry?: boolean|true,
     title?: string,
+    showSuffixIcon?: boolean,
 }
 
 
@@ -68,10 +69,9 @@ const PrimaryTextField=(props: PrimaryTextFieldProps) => {
                     )}
 
                 />
-                {/* Thêm icon ẩn hiện */}
-                <TouchableOpacity onPress={() => setSecureTextEntry(!secureTextEntry)} style={styles.iconContainer}>
+                {props.showSuffixIcon&&<TouchableOpacity onPress={() => setSecureTextEntry(!secureTextEntry)} style={styles.iconContainer}>
                     <Icon name={secureTextEntry? 'eye':'eye-slash'} size={24} color="gray" />
-                </TouchableOpacity>
+                </TouchableOpacity>}
             </View>
             {props.errors[ props.name ]&&<Text style={styles.errorText}>{props.errors[ props.name ].message}</Text>}
 
