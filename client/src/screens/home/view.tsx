@@ -1,15 +1,15 @@
-import {Text, View, StyleSheet, StyleProp, TextStyle, ScrollView} from "react-native"
-import {Badge, ButtonPrimary, Category, PrimaryTextField, SwitchPrimary, Tag} from "../../components";
-import {COLORS} from "../../theme/color";
-import {useForm} from 'react-hook-form';
+import { Text, View, StyleSheet, StyleProp, TextStyle, ScrollView } from "react-native"
+import { Badge, ButtonPrimary, Category, PrimaryTextField, SwitchPrimary, Tag } from "../../components";
+import { COLORS } from "../../theme/color";
+import { useForm } from 'react-hook-form';
 
 
 
 
-function HomeView () {
-    const {control, register, handleSubmit, formState: {errors}}=useForm({mode: "onSubmit"});
+function HomeView() {
+    const { control, register, handleSubmit, formState: { errors } } = useForm({ mode: "onSubmit" });
     //test
-    const onSubmit=(data: any) => {
+    const onSubmit = (data: any) => {
         console.log(data); // Dữ liệu của tất cả các TextInput sau khi submit
         // Thực hiện các thao tác tiếp theo, chẳng hạn gửi dữ liệu đến server, chuyển hướng, vv.
     };
@@ -21,7 +21,6 @@ function HomeView () {
             width={"60%"}
         >
         </ButtonPrimary>
-
         <View style={styles.space}></View>
         <Badge title={"Label"} backgroundColor={COLORS.Primary} />
         <View style={styles.space}></View>
@@ -32,15 +31,13 @@ function HomeView () {
             name="username"
             placeholder="Enter your username"
             rules={
-                register("username",
-                    {
-                        required: "Username is required",
-                        pattern: {
-                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                            message: "Invalid Username"
-                        }
+                {
+                    required: "Username is required",
+                    pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: "Invalid Username"
                     }
-                )
+                }
             }
             errors={errors}
             showSuffixIcon={true}
@@ -63,7 +60,7 @@ function HomeView () {
 
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     space: {
         height: 30,
         width: 30,
