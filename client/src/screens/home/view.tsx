@@ -1,15 +1,15 @@
-import {Text, View, StyleSheet, StyleProp, TextStyle, ScrollView} from "react-native"
-import {Badge, ButtonPrimary, PrimaryTextField} from "../../components";
-import {COLORS} from "../../theme/color";
-import {Control, FieldValues, FieldError, Controller, useForm, Form} from 'react-hook-form';
+import { Text, View, StyleSheet, StyleProp, TextStyle, ScrollView } from "react-native"
+import { Badge, ButtonPrimary, PrimaryTextField } from "../../components";
+import { COLORS } from "../../theme/color";
+import { Control, FieldValues, FieldError, Controller, useForm, Form } from 'react-hook-form';
 
 
 
 
-function HomeView () {
-    const {control, register, handleSubmit, formState: {errors}}=useForm({mode: "onSubmit"});
+function HomeView() {
+    const { control, register, handleSubmit, formState: { errors } } = useForm({ mode: "onSubmit" });
     //test
-    const onSubmit=(data: any) => {
+    const onSubmit = (data: any) => {
         console.log(data); // Dữ liệu của tất cả các TextInput sau khi submit
         // Thực hiện các thao tác tiếp theo, chẳng hạn gửi dữ liệu đến server, chuyển hướng, vv.
     };
@@ -52,7 +52,7 @@ function HomeView () {
 
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     space: {
         height: 30,
         width: 30,
