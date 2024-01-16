@@ -1,7 +1,7 @@
 import {Text, View, StyleSheet, StyleProp, TextStyle, ScrollView} from "react-native"
-import {Badge, ButtonPrimary, PrimaryTextField} from "../../components";
+import {Badge, ButtonPrimary, Category, PrimaryTextField, SwitchPrimary, Tag} from "../../components";
 import {COLORS} from "../../theme/color";
-import {Control, FieldValues, FieldError, Controller, useForm, Form} from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 
 
 
@@ -14,6 +14,7 @@ function HomeView () {
         // Thực hiện các thao tác tiếp theo, chẳng hạn gửi dữ liệu đến server, chuyển hướng, vv.
     };
     return <View style={styles.container}>
+        <View style={styles.space}></View>
         <ButtonPrimary
             title={"Demo"}
             onPress={handleSubmit(onSubmit)}
@@ -42,9 +43,19 @@ function HomeView () {
                 )
             }
             errors={errors}
+            showSuffixIcon={true}
         />
         <View style={styles.space}></View>
-
+        <View style={styles.containerSwicth}>
+            <SwitchPrimary initValue={true} onValueChange={() => { }} />
+            <View style={styles.space}></View>
+            <SwitchPrimary initValue={false} onValueChange={() => { }} />
+        </View>
+        <View style={styles.space}></View>
+        <Tag name="Label Tag" />
+        <View style={styles.space}></View>
+        <Category name="Label Tag" />
+        <Category />
 
     </View >
 
@@ -63,6 +74,11 @@ const styles=StyleSheet.create({
         alignItems: 'center',
         backgroundColor: COLORS.White,
     },
+    containerSwicth: {
+        // flex: 1,
+        justifyContent: "center",
+        flexDirection: 'row',
+    }
 });
 
 export default HomeView;
