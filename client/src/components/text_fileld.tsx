@@ -50,7 +50,6 @@ const PrimaryTextField = (props: PrimaryTextFieldProps) => {
                 styles.container,
                 { borderColor: props.errors.fieldName ? 'red' : isFocused ? COLORS.Primary : COLORS.Border }]
             }>
-
                 <Controller
                     control={props.control}
                     name={props.name}
