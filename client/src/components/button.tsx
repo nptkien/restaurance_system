@@ -11,11 +11,13 @@ interface ButtonProps {
   textStyle?: TextStyle;
   buttonStyle?: ViewStyle;
   width?: DimensionValue | undefined,
+  margin?: DimensionValue | undefined,
+
 }
 
 const ButtonPrimary = (props: ButtonProps) => {
   return <TouchableOpacity
-    style={[styles.buttonContainer, { width: props?.width }]}
+    style={[styles.buttonContainer, { width: props?.width, margin: props.margin }]}
     onPress={() => {
       props.onPress();
     }}

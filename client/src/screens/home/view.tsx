@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 
 
 
-function HomeView() {
+function HomeScreen() {
     const { control, register, handleSubmit, formState: { errors } } = useForm({ mode: "onSubmit" });
     //test
     const onSubmit = (data: any) => {
@@ -44,9 +44,9 @@ function HomeView() {
         />
         <View style={styles.space}></View>
         <View style={styles.containerSwicth}>
-            <SwitchPrimary initValue={true} onValueChange={() => { }} />
+            <SwitchPrimary initValue={true} onValueChange={(v) => { }} />
             <View style={styles.space}></View>
-            <SwitchPrimary initValue={false} onValueChange={() => { }} />
+            <SwitchPrimary initValue={false} onValueChange={(v) => { }} />
         </View>
         <View style={styles.space}></View>
         <Tag name="Label Tag" />
@@ -78,4 +78,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default HomeView;
+export default HomeScreen;
