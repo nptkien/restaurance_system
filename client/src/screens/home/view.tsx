@@ -2,11 +2,13 @@ import { Text, View, StyleSheet, StyleProp, TextStyle, ScrollView } from "react-
 import { Badge, ButtonPrimary, Category, PrimaryTextField, SwitchPrimary, Tag } from "../../components";
 import { COLORS } from "../../theme/color";
 import { Control, FieldValues, FieldError, Controller, useForm, Form } from 'react-hook-form';
+import { useAppSelector } from "../../redux/hook";
+import { useCallback, useEffect, useMemo, useReducer } from "react";
+import React from "react";
 
 
 
-
-function HomeView() {
+const HomeView = () => {
     const { control, register, handleSubmit, formState: { errors } } = useForm({ mode: "onSubmit" });
     //test
     const onSubmit = (data: any) => {

@@ -10,7 +10,7 @@ const errorMiddleware: Middleware = store => next => action => {
     //     console.log(_err.toString());
     //     return;
     // }
-    return;
+    // return;
     // }
 
     return next(action);

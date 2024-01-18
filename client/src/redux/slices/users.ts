@@ -1,11 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 // import { AppState } from "../store";
-import ApiError from "../../models/ApiError";
-import User from "../../models/User";
-import Endpoint from "../../services/api/end_point";
-import { apiLoadUsersBySize } from "../../services/api/service";
 import * as LocalStorage from '../../utils/storage';
 import { AppState } from "../store";
+import ApiError from "../../services/api_error";
+import { User } from '../../../../models'
 interface ILoadUsersBySize {
     data: Array<any>
 }
@@ -26,9 +24,9 @@ const initialState: UserListState = {
 
 
 
-export const requestLoadUserBySize = createAsyncThunk(Endpoint.LOGIN, async (props: { size: number }, thunkApi) => {
+export const requestLoadUserBySize = createAsyncThunk("Endpoint.LOGIN", async (props: { size: number }, thunkApi) => {
     const { size } = props;
-    const res = await apiLoadUsersBySize({ size });
+    const res = {}
     return { data: res };
 })
 
@@ -53,7 +51,8 @@ const usersReducer = createSlice({
             },
             prepare: (user: User[]) => {
                 return { payload: user }
-            }
+            },
+
         },
 
     },
@@ -65,17 +64,6 @@ const usersReducer = createSlice({
             })
         })
 
-        builder.addCase(requestLoadUserBySize.fulfilled, (state, action: PayloadAction<ILoadUsersBySize>) => {
-            console.log(`ha ha ha ?? ${action.payload.data}`);
-            state.users = action.payload.data.map(e => {
-                return new User(e);
-            });
-            state.loading = false;
-
-        }).addCase(requestLoadUserBySize.rejected, (state, action) => {
-            // state.error = new ApiError(action.payload);
-            // state.loading = false;
-        })
 
 
     }
