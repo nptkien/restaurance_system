@@ -12,3 +12,23 @@ Content-type: application/json; charset=utf-8
     "isFAQ": false,
     "hasSkillTable": true
 }
+
+###
+POST http://localhost:3001/api/login HTTP/1.1
+Content-type: application/json; charset=utf-8
+
+{
+    "account": "kien@gmail.com",
+    "password": "Kien@234"
+}
+
+
+###
+POST http://localhost:3001/api/verify HTTP/1.1
+Content-type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50Ijoia2llbkBnbWFpbC5jb20iLCJwYXNzd29yZCI6IktpZW5AMjM0IiwiaWF0IjoxNzA1NTcxOTgwLCJleHAiOjE3MDU1NzIwNDAsImlzcyI6IklTU1VFUi1JRCJ9.V3IqJygqYj0GU39U_mtpzEuFxTXdkHUOInDlA2dZ4LA
+
+{
+    "account": "kien@gmail.com",
+    "password": "Kien@234"
+}

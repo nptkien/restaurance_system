@@ -1,11 +1,11 @@
 import express from "express";
 import http, { Server } from "http";
-import dotenv from "./src/ultis/dotenv";
 import logger from "./src/ultis/logger";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import mongoose from 'mongoose';
 import { appRouters } from "./src/routes";
+import dotenv from "./src/ultis/dotenv";
 dotenv.config();
 const PREFIX_API = "/api";
 
@@ -29,7 +29,7 @@ class App {
     constructor() {
         this.app = express();
         this.server = http.createServer(this.app);
-        this.port = process.env.PORT || 3001;
+        this.port = process.env.PORT || 3003;
         this.config();
         this.useAPI();
     }
