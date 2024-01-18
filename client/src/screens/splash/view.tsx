@@ -9,6 +9,7 @@ import { SPACING } from "../../theme/spacing";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import KeyStorage from "../../constants/key_storage";
+import React from "react";
 
 interface SplashProps {
     navigation: NativeStackNavigationProp<any, 'Splash'>;

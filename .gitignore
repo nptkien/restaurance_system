@@ -4,6 +4,7 @@ server/*-lock.json
 server/*.env
 client/*-lock.json
 client/yarn.lock
+client/ios/Pods/*
 client/*.env
 server/venv/
 server/__pycache__/

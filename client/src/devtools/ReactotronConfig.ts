@@ -62,7 +62,7 @@ Reactotron.onCustomCommand({
 
 Reactotron.onCustomCommand({
   command: "navigateTo",
-  handler: (args) => {
+  handler: (args: any) => {
     const { route } = args
     if (route) {
       Reactotron.log!(`Navigating to: ${route}`)
