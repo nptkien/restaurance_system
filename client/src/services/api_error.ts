@@ -1,3 +1,5 @@
+import { Axios, AxiosError, ResponseType } from "axios";
+
 class ApiError {
     message: string;
     status: number;
@@ -9,5 +11,6 @@ class ApiError {
     toString() {
         return `Api Error: ${this.status} --- ${this.message}`;
     }
+
 }
 export default ApiError;
