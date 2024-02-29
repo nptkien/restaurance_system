@@ -1,11 +1,12 @@
 import express from "express";
 import http, { Server } from "http";
-import dotenv from "./src/ultis/dotenv";
 import logger from "./src/ultis/logger";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import mongoose from 'mongoose';
 import { appRouters } from "./src/routes";
+import dotenv from "./src/ultis/dotenv";
+import { encryptPassword } from "./src/ultis/auth";
 dotenv.config();
 const PREFIX_API = "/api";
 
@@ -29,7 +30,7 @@ class App {
     constructor() {
         this.app = express();
         this.server = http.createServer(this.app);
-        this.port = process.env.PORT || 3001;
+        this.port = process.env.PORT || 3003;
         this.config();
         this.useAPI();
     }
@@ -38,6 +39,7 @@ class App {
         connectDatabase(() => {
             this.server.listen(this.port, () => {
                 logger.info(`Server is running on port ${this.port}`);
+                encryptPassword();
             });
             // if (!JSON.parse(process.env.SOCKET_DISABLE || 'false')) initSocket(this.server);
             mongoose.connection.on("error", (err) => {

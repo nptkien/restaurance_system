@@ -1,4 +1,4 @@
-class User {
+export class User {
     _id: string;
     firstName: string;
     lastName: string;
@@ -51,5 +51,3 @@ class User {
         return `User { _id: ${this._id}, firstName: ${this.firstName}, lastName: ${this.lastName}, age: ${this.age}, gender: ${this.gender}, avatar: ${this.avatar}, email: ${this.email}, phoneNumber: ${this.phoneNumber}, address: ${this.address}, password: ${this.password} }`;
     }
 }
-
-export { User };

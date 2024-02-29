@@ -1,5 +1,5 @@
 class ProductCategory {
-    _id: string;
+    _id?: string;
     name: string;
     code: string;
     description: string;
@@ -12,7 +12,7 @@ class ProductCategory {
     productType?: string;
     // Hàm khởi tạo
     constructor({
-        _id = "",
+        _id,
         name = "",
         code = "",
         description = "",

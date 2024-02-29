@@ -2,17 +2,14 @@ import { Document, model, Model, Schema, Types } from "mongoose";
 export interface ProductDocument extends ProductCategory, Document {
     _id: any;
 }
-import { ProductCategory, } from 'models';
+import { ProductCategory, } from '../../../models';
 const productCategorySchema = new Schema<ProductDocument, Model<ProductDocument>>({
     name: String,
     providerId: {
         type: Types.ObjectId,
         // ref: appSettingTbl
     },
-    productType: {
-        type: Types.ObjectId,
-        // ref: appSettingTbl
-    },
+    productType: String,
     code: String,
     status: Number,
     type: Number,

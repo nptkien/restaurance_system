@@ -1,6 +1,6 @@
 
 class Product {
-    _id: string;
+    _id?: string;
     name: string;
     serial: string;
     status: number;
@@ -13,9 +13,11 @@ class Product {
     categoryId?: string;
     screenShot: string[];
     video: string[];
+    unit: string;
+    currency: string;
     // Hàm khởi tạo
     constructor({
-        _id = "",
+        _id,
         name = "",
         serial = "",
         status = 0,
@@ -28,6 +30,9 @@ class Product {
         categoryId = undefined,
         screenShot = [],
         video = [],
+        unit = "",
+        currency = "đ"
+
     }: {
         _id?: string;
         name?: string;
@@ -42,6 +47,8 @@ class Product {
         categoryId?: string;
         screenShot?: string[];
         video?: string[];
+        currency?: string;
+        unit?: string
     } = {}) {
         this._id = _id;
         this.name = name;
@@ -56,6 +63,9 @@ class Product {
         this.categoryId = categoryId;
         this.screenShot = screenShot;
         this.video = video;
+        this.unit = unit;
+        this.currency = currency;
+
     }
 
     // Hàm chuyển đối thành chuỗi
