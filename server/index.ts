@@ -6,6 +6,7 @@ import cors from "cors";
 import mongoose from 'mongoose';
 import { appRouters } from "./src/routes";
 import dotenv from "./src/ultis/dotenv";
+import { encryptPassword } from "./src/ultis/auth";
 dotenv.config();
 const PREFIX_API = "/api";
 
@@ -38,6 +39,7 @@ class App {
         connectDatabase(() => {
             this.server.listen(this.port, () => {
                 logger.info(`Server is running on port ${this.port}`);
+                encryptPassword();
             });
             // if (!JSON.parse(process.env.SOCKET_DISABLE || 'false')) initSocket(this.server);
             mongoose.connection.on("error", (err) => {

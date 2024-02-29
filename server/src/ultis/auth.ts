@@ -2,7 +2,8 @@ import jwt from 'jsonwebtoken';
 import dotenv from "../ultis/dotenv";
 import logger from './logger';
 import express, { NextFunction, Request, Response } from "express";
-
+import CryptoJS from 'crypto-js';
+import NodeRSA from 'node-rsa';
 dotenv.config();
 
 
@@ -32,4 +33,20 @@ export const verifyAccessToken = (req: Request, res: Response, next: NextFunctio
             }
         });
     }
+}
+const plainPassword = "Kien@6789";
+const store_password = "c2619e5b82e8ae6258c0e03717fa1b6b054a146d6010899f810656dea948e522";
+export const encryptPassword = () => {
+    const user = { account: 'kiennpt', password: plainPassword, };
+    const salt = user.account + '.' + user.password;
+    // const passwordClient = CryptoJS.
+    const key = new NodeRSA({b: 1024});
+    const public_key = key.importKey(process.env.ACCESS_PUBLIC_KEY!);
+    const private_key = key.importKey(process.env.ACCESS_PRIVATE_KEY!);
+
+    let encryptPassword = public_key.encrypt(plainPassword, "base64");
+    logger.info(encryptPassword);
+    let decryptPassword = private_key.decrypt(encryptPassword, "utf8");
+    logger.info(decryptPassword);
+
 }
