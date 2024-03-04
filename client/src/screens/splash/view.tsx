@@ -10,6 +10,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import KeyStorage from "../../constants/key_storage";
 import React from "react";
+import { navigate } from "../../navigation/utilities";
 
 interface SplashProps {
     navigation: NativeStackNavigationProp<any, 'Splash'>;
@@ -20,7 +21,8 @@ const SplashScreen = (props: SplashProps) => {
         const introShown = await AsyncStorage.getItem(KeyStorage.showIntro);
         if (introShown) {
             // Nếu đã hiển thị, chuyển đến màn hình Home
-            props.navigation.replace(RouterNames.HOME);
+            // props.navigation.replace(RouterNames.HOME);
+            navigate({ name: "SignIn", params: undefined })
         } else {
             // Nếu chưa hiển thị, chuyển đến màn hình Intro và lưu trạng thái
             props.navigation.replace(RouterNames.INTRO);

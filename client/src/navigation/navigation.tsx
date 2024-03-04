@@ -10,11 +10,13 @@ import { useAppSelector } from '../redux/hook';
 import { usersState } from '../redux/slices/users';
 import { navigationRef } from './utilities';
 import { HomeNavigator, HomeTabParamList } from './home_tab_navigation';
+import { SignInScreen } from '../screens/auth/sign_in/SignInScreen';
+import { SignUpScreen } from '../screens/auth/sign_up/SignUpScreen';
 export type AppStackParamList = {
-  Welcome: undefined
-  Login: undefined
-  HomeTab: NavigatorScreenParams<HomeTabParamList>
-  Splash: undefined
+  Welcome: undefined,
+  SignIn: undefined,
+  HomeTab: NavigatorScreenParams<HomeTabParamList>,
+  Splash: undefined,
   ProductList: { categoryId: string }
 }
 
@@ -31,6 +33,14 @@ const AppStack = () => {
   const { users: user } = useAppSelector(usersState);
   const getAppRouters = useMemo(() => {
     return <>
+      <Stack.Screen
+        name={RouterNames.SIGN_IN}
+        component={SignInScreen}
+      />
+      <Stack.Screen
+        name={RouterNames.SIGN_UP}
+        component={SignUpScreen}
+      />
       <Stack.Screen name={"Home"} component={HomeNavigator} />
 
       <Stack.Screen

@@ -3,3 +3,4 @@ export * from './product';
 export * from './restaurant';
 export * from './product_category';
 export * from './provider';
+export * from './api_endpoint';

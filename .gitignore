@@ -1,8 +1,9 @@
-server/node_modules/*
+server/node_modules/
 client/node_modules/
 server/*-lock.json
 server/*.env
 client/*-lock.json
+client/*.lock
 client/yarn.lock
 client/ios/Pods/*
 client/*.env

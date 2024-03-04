@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "jsx": "react"
+    "jsx": "react",
+    "allowJs": true,
+    "rootDir": "../",
+    "target": "ES6",
+    "module": "NodeNext",
   },
   "extends": "@react-native/typescript-config/tsconfig.json"
 }

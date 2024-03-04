@@ -1,6 +1,7 @@
 import { Action, ThunkDispatch, configureStore, combineReducers, Middleware, } from '@reduxjs/toolkit'
 import usersReducer from './slices/users';
 import counterReducer from './slices/counterSlice';
+import authReducer from './slices/auth';
 const errorMiddleware: Middleware = store => next => action => {
     // if ((action as Action).error) {
     // Xử lý các lỗi tại đây
@@ -20,6 +21,7 @@ export const store = configureStore({
     reducer: combineReducers({
         usersState: usersReducer,
         counter: counterReducer,
+        authState: authReducer
     }),
     middleware: (getDefaultMiddle) => getDefaultMiddle({ serializableCheck: false }).concat(errorMiddleware),
 

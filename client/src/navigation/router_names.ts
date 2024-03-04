@@ -3,7 +3,8 @@ const RouterNames = {
     SPLASH: "Slash",
     INTRO: "Intro",
     HOME: "Home",
-    SIGN_IN: "Sign In",
+    SIGN_IN: "SignIn",
+    SIGN_UP: "SignUp",
     SPLAH: "Splash",
     PROFILE: "Profile",
     PRODUCT_DETAIL: "Product Detail",
@@ -11,7 +12,6 @@ const RouterNames = {
     HOME_TAB_OTHER: "/home_tab_other",
     HOME_TAB_HISTORY: "/home_tab_history",
     HOME_TAB_STATUS: "/home_tab_status",
-
 
 }
 
